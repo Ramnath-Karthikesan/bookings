@@ -1,0 +1,33 @@
+{{template "base" .}}
+
+{{define "content"}}
+
+<div class="container py-4">
+    <header class="pb-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+        <span class="fs-4">Hello World Project</span>
+      </a>
+    </header>
+
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">About Page</h1>
+        <p class="col-md-8 fs-4">This website was developed using <b>Go</b>. Concepts like rendering templates using template cache, routing and passing data from the server to template were covered while developing this application</p>
+        <p class="fs-4">This message came from the server: {{index .StringMap "test"}}</p>
+        <p class="fs-4">
+          {{ if ne (index .StringMap "remote_ip") ""}}
+            Your remote IP address is {{index .StringMap "remote_ip"}}
+          {{else}}
+            I don't know know your ip address yet. Visit the <a href="/">Home Page</a> so I can set it.
+          {{end}}
+        </p>
+        <button class="btn btn-primary btn-lg" type="button">Have a nice day :)</button>
+      </div>
+    </div>
+
+
+    <footer class="pt-3 mt-4 text-muted border-top">
+      &copy; 2022
+    </footer>
+</div>
+{{end}}
